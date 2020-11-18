@@ -130,8 +130,6 @@ static MPMediaItemArtwork* artwork = nil;
         // Set callbacks on MPRemoteCommandCenter
         fastForwardInterval = [call.arguments objectForKey:@"fastForwardInterval"];
         rewindInterval = [call.arguments objectForKey:@"rewindInterval"];
-        NSLog(@"fastForwardInterval = %@", fastForwardInterval)
-        NSLog(@"rewindInterval = %@", rewindInterval)
         commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
         commands = @[
             commandCenter.stopCommand,
@@ -178,7 +176,6 @@ static MPMediaItemArtwork* artwork = nil;
 
         // Params
         params = [call.arguments objectForKey:@"params"];
-        NSLog(@"params = %@", params)
 
 #if TARGET_OS_OSX
         // No isolate can be used for macOS until https://github.com/flutter/flutter/issues/65222 is resolved.
