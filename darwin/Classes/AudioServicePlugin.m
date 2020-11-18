@@ -28,8 +28,8 @@ static NSNumber *updateTime = nil;
 static NSNumber *speed = nil;
 static NSNumber *repeatMode = nil;
 static NSNumber *shuffleMode = nil;
-static NSNumber *fastForwardInterval = [NSNumber numberWithInt:10000];
-static NSNumber *rewindInterval = [NSNumber numberWithInt:10000];
+static NSNumber *fastForwardInterval = 10000;
+static NSNumber *rewindInterval = 10000;
 static NSMutableDictionary *params = nil;
 static MPMediaItemArtwork* artwork = nil;
 
