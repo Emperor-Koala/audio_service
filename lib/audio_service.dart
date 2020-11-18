@@ -800,23 +800,30 @@ class AudioService {
     assert(fastForwardInterval > Duration.zero,
         "fastForwardDuration must be positive");
     assert(rewindInterval > Duration.zero, "rewindInterval must be positive");
+    print('Intervals are positive');
     return await _asyncTaskQueue.schedule(() async {
       if (!_connected) throw Exception("Not connected");
+      print('connected');
       if (running) return false;
+      print('running');
       _runningSubject.add(true);
       _afterStop = false;
       ui.CallbackHandle handle;
       if (AudioService.usesIsolate) {
+        print('usesIsolate == true');
         handle = ui.PluginUtilities.getCallbackHandle(backgroundTaskEntrypoint);
         if (handle == null) {
+          print('handle was null');
           return false;
         }
       }
 
       var callbackHandle = handle?.toRawHandle();
       if (kIsWeb) {
+        print('is web');
         // Platform throws runtime exceptions on web
       } else if (Platform.isIOS) {
+        print('is ios');
         // NOTE: to maintain compatibility between the Android and iOS
         // implementations, we ensure that the iOS background task also runs in
         // an isolate. Currently, the standard Isolate API does not allow
@@ -854,6 +861,7 @@ class AudioService {
         'rewindInterval': rewindInterval.inMilliseconds,
       });
       if (!AudioService.usesIsolate) {
+        print('does not use isolate');
         _startNonIsolateCompleter = Completer();
         backgroundTaskEntrypoint();
         await _startNonIsolateCompleter?.future;
@@ -1366,10 +1374,13 @@ class AudioServiceBackground {
     Map startParams = await _backgroundChannel.invokeMethod('ready');
     Duration fastForwardInterval =
         Duration(milliseconds: startParams['fastForwardInterval'] ?? 10000);
+    print('set fastForwardInterval');
     Duration rewindInterval =
         Duration(milliseconds: startParams['rewindInterval'] ?? 10000);
+    print('set rewindInterval');
     Map<String, dynamic> params =
         startParams['params']?.cast<String, dynamic>();
+    print('set params');
     _task._setParams(
       fastForwardInterval: fastForwardInterval,
       rewindInterval: rewindInterval,
