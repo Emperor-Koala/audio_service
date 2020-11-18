@@ -1387,7 +1387,7 @@ class AudioServiceBackground {
     );
     try {
       await _task.onStart(params);
-    } catch (e) {} finally {
+    } catch (e) {print(e);} finally {
       // For now, we return successfully from AudioService.start regardless of
       // whether an exception occurred in onStart.
       await _backgroundChannel.invokeMethod('started');
