@@ -794,12 +794,12 @@ class AudioService {
     bool androidStopForegroundOnPause = false,
     bool androidEnableQueue = false,
     Size androidArtDownscaleSize,
-    Duration fastForwardInterval = const Duration(seconds: 10),
-    Duration rewindInterval = const Duration(seconds: 10),
+    // Duration fastForwardInterval = const Duration(seconds: 10),
+    // Duration rewindInterval = const Duration(seconds: 10),
   }) async {
-    assert(fastForwardInterval > Duration.zero,
-        "fastForwardDuration must be positive");
-    assert(rewindInterval > Duration.zero, "rewindInterval must be positive");
+    // assert(fastForwardInterval > Duration.zero,
+    //     "fastForwardDuration must be positive");
+    // assert(rewindInterval > Duration.zero, "rewindInterval must be positive");
     return await _asyncTaskQueue.schedule(() async {
       if (!_connected) throw Exception("Not connected");
       if (running) return false;
@@ -850,8 +850,8 @@ class AudioService {
                 'height': androidArtDownscaleSize.height
               }
             : null,
-        'fastForwardInterval': fastForwardInterval.inMilliseconds,
-        'rewindInterval': rewindInterval.inMilliseconds,
+        // 'fastForwardInterval': fastForwardInterval.inMilliseconds,
+        // 'rewindInterval': rewindInterval.inMilliseconds,
       });
       if (!AudioService.usesIsolate) {
         _startNonIsolateCompleter = Completer();
@@ -1364,16 +1364,16 @@ class AudioServiceBackground {
       _backgroundChannel.setMethodCallHandler(handler);
     }
     Map startParams = await _backgroundChannel.invokeMethod('ready');
-    Duration fastForwardInterval =
-        Duration(milliseconds: startParams['fastForwardInterval']);
-    Duration rewindInterval =
-        Duration(milliseconds: startParams['rewindInterval']);
+    // Duration fastForwardInterval =
+    //     Duration(milliseconds: startParams['fastForwardInterval']);
+    // Duration rewindInterval =
+    //     Duration(milliseconds: startParams['rewindInterval']);
     Map<String, dynamic> params =
         startParams['params']?.cast<String, dynamic>();
-    _task._setParams(
-      fastForwardInterval: fastForwardInterval,
-      rewindInterval: rewindInterval,
-    );
+    // _task._setParams(
+    //   fastForwardInterval: Duration(seconds: 10),
+    //   rewindInterval: Duration(seconds: 10),
+    // );
     try {
       await _task.onStart(params);
     } catch (e) {} finally {
@@ -1650,8 +1650,8 @@ class AudioServiceBackground {
 /// and shutting down the audio task.
 abstract class BackgroundAudioTask {
   final BaseCacheManager cacheManager;
-  Duration _fastForwardInterval;
-  Duration _rewindInterval;
+  Duration _fastForwardInterval = Duration(seconds: 10);
+  Duration _rewindInterval = Duration(seconds: 10);
 
   /// Subclasses may supply a [cacheManager] to manage the loading of artwork,
   /// or an instance of [DefaultCacheManager] will be used by default.
@@ -1865,13 +1865,13 @@ abstract class BackgroundAudioTask {
   /// to kill your service at any time to free up resources).
   Future<void> onClose() => onStop();
 
-  void _setParams({
-    Duration fastForwardInterval,
-    Duration rewindInterval,
-  }) {
-    _fastForwardInterval = fastForwardInterval;
-    _rewindInterval = rewindInterval;
-  }
+  // void _setParams({
+  //   Duration fastForwardInterval,
+  //   Duration rewindInterval,
+  // }) {
+  //   _fastForwardInterval = fastForwardInterval;
+  //   _rewindInterval = rewindInterval;
+  // }
 
   Future<void> _skip(int offset) async {
     final mediaItem = AudioServiceBackground.mediaItem;
