@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="audio_service.dart" pinned="false" current-in-tab="true">
@@ -22,15 +40,8 @@
       </file>
     </leaf>
   </component>
-  <component name="ToolWindowManager">
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-    </layout>
-  </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-    </navigator>
+    <navigator currentView="ProjectPane" proportions="" version="1" />
     <panes>
       <pane id="ProjectPane">
         <option name="show-excluded-files" value="false" />
@@ -41,5 +52,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+    </layout>
   </component>
 </project>
