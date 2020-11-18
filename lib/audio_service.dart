@@ -1380,6 +1380,7 @@ class AudioServiceBackground {
     print('set rewindInterval');
     Map<String, dynamic> params =
         startParams['params']?.cast<String, dynamic>();
+    print(params);
     print('set params');
     _task._setParams(
       fastForwardInterval: fastForwardInterval,

@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7ab799-0150-4922-9628-a9b23224fad6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/audio_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/audio_service.dart" afterDir="false" />
-    </list>
+    <list default="true" id="ef7ab799-0150-4922-9628-a9b23224fad6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +43,21 @@
       <option name="project" value="LOCAL" />
       <updated>1605727630096</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add debug messages;">
+      <created>1605728439179</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605728439179</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add debug messages;">
+      <created>1605728730422</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605728730422</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -66,20 +77,21 @@
     <MESSAGE value="Revert &quot;Fix ObjectiveC&quot;&#10;&#10;This reverts commit e2a2e006" />
     <MESSAGE value="Revert &quot;Set everything related to fast forward and rewind intervals to 10 seconds fixed.&quot;&#10;&#10;This reverts commit 3c849d30" />
     <MESSAGE value="Add null check for interval durations coming from platform" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add null check for interval durations coming from platform" />
+    <MESSAGE value="Add debug messages;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add debug messages;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="481" y="134" key="CommitChangelistDialog2" timestamp="1605727629956">
+    <state x="481" y="134" key="CommitChangelistDialog2" timestamp="1605728730269">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state x="481" y="134" key="CommitChangelistDialog2/0.23.1792.1017@0.23.1792.1017" timestamp="1605727629956" />
+    <state x="481" y="134" key="CommitChangelistDialog2/0.23.1792.1017@0.23.1792.1017" timestamp="1605728730269" />
     <state x="534" y="300" key="MultipleFileMergeDialog" timestamp="1605727402274">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
     <state x="534" y="300" key="MultipleFileMergeDialog/0.23.1792.1017@0.23.1792.1017" timestamp="1605727402274" />
-    <state x="496" y="271" key="Vcs.Push.Dialog.v2" timestamp="1605727631303">
+    <state x="496" y="271" key="Vcs.Push.Dialog.v2" timestamp="1605728733932">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state x="496" y="271" key="Vcs.Push.Dialog.v2/0.23.1792.1017@0.23.1792.1017" timestamp="1605727631303" />
+    <state x="496" y="271" key="Vcs.Push.Dialog.v2/0.23.1792.1017@0.23.1792.1017" timestamp="1605728733932" />
   </component>
 </project>
