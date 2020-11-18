@@ -28,6 +28,8 @@ static NSNumber *updateTime = nil;
 static NSNumber *speed = nil;
 static NSNumber *repeatMode = nil;
 static NSNumber *shuffleMode = nil;
+static NSNumber *fastForwardInterval = [NSNumber numberWithInt:10000];
+static NSNumber *rewindInterval = [NSNumber numberWithInt:10000];
 static NSMutableDictionary *params = nil;
 static MPMediaItemArtwork* artwork = nil;
 
@@ -126,6 +128,8 @@ static MPMediaItemArtwork* artwork = nil;
 #endif
 
         // Set callbacks on MPRemoteCommandCenter
+//        fastForwardInterval = [call.arguments objectForKey:@"fastForwardInterval"];
+//        rewindInterval = [call.arguments objectForKey:@"rewindInterval"];
         commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
         commands = @[
             commandCenter.stopCommand,
@@ -180,6 +184,8 @@ static MPMediaItemArtwork* artwork = nil;
 #endif
     } else if ([@"ready" isEqualToString:call.method]) {
         NSMutableDictionary *startParams = [NSMutableDictionary new];
+//        startParams[@"fastForwardInterval"] = fastForwardInterval;
+//        startParams[@"rewindInterval"] = rewindInterval;
         startParams[@"params"] = params;
         result(startParams);
     } else if ([@"started" isEqualToString:call.method]) {
@@ -212,6 +218,8 @@ static MPMediaItemArtwork* artwork = nil;
         _controlsUpdated = NO;
         queue = nil;
         startResult = nil;
+//        fastForwardInterval = nil;
+//        rewindInterval = nil;
         params = nil;
         commandCenter = nil;
         result(@YES);
@@ -424,14 +432,16 @@ static MPMediaItemArtwork* artwork = nil;
             }
             break;
         case ARewind:
+//            if (rewindInterval.integerValue > 0) {
                 if (enable) {
                     [commandCenter.skipBackwardCommand addTarget: self action:@selector(skipBackward:)];
-                    int rewindIntervalInSeconds = 10;
+                    int rewindIntervalInSeconds = [rewindInterval intValue]/1000;
                     NSNumber *rewindIntervalInSec = [NSNumber numberWithInt: rewindIntervalInSeconds];
                     commandCenter.skipBackwardCommand.preferredIntervals = @[rewindIntervalInSec];
                 } else {
                     [commandCenter.skipBackwardCommand removeTarget:nil];
                 }
+//            }
             break;
         case ASkipToPrevious:
             if (enable) {
@@ -448,14 +458,16 @@ static MPMediaItemArtwork* artwork = nil;
             }
             break;
         case AFastForward:
+//            if (fastForwardInterval.integerValue > 0) {
                 if (enable) {
                     [commandCenter.skipForwardCommand addTarget: self action:@selector(skipForward:)];
-                    int fastForwardIntervalInSeconds = 10;
+                    int fastForwardIntervalInSeconds = [fastForwardInterval intValue]/1000;
                     NSNumber *fastForwardIntervalInSec = [NSNumber numberWithInt: fastForwardIntervalInSeconds];
                     commandCenter.skipForwardCommand.preferredIntervals = @[fastForwardIntervalInSec];
                 } else {
                     [commandCenter.skipForwardCommand removeTarget:nil];
-                }]
+                }
+//            }
             break;
         case ASetRating:
             // TODO:
